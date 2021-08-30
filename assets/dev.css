@@ -1,0 +1,19 @@
+/*
+Theme Name: Tailwind-WP
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* npx tailwindcss -i ./dev.css -o ../style.css -w */
