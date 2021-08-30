@@ -3,7 +3,7 @@
 Custom-theme-WP est un thème WordPress spécialement configuré avec Tailwind.css.
 
 ```bash
-git clone 
+git clone https://github.com/dijerosso59/Custom-WP.git
 ```
 
 ## Quickstart
