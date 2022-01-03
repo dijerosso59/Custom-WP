@@ -17,6 +17,8 @@ function luca_supports () {
 
     // Emplacement du menu du footer
     register_nav_menu('footer', 'Pied de page');
+
+    add_theme_support('woocommerce');
 }
 
 // Fonction ajout assets CSS et JS
@@ -32,7 +34,7 @@ function luca_assets () {
 
     wp_enqueue_script('aos.js');
     wp_enqueue_script('ionicons.js');
-    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["aos.js", "ionicons.js"], false, true);
+    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["aos.js", "ionicons.js", "jquery"], false, true);
 }
 
 // Fonction ajout class li menu
@@ -91,6 +93,14 @@ function wpc_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
+
+/* Connexion à la base de donnée */
+$dbuser     = defined( 'DB_USER' ) ? DB_USER : '';
+$dbpassword = defined( 'DB_PASSWORD' ) ? DB_PASSWORD : '';
+$dbname     = defined( 'DB_NAME' ) ? DB_NAME : '';
+$dbhost     = defined( 'DB_HOST' ) ? DB_HOST : '';
+
+$wpdb = new wpdb( $dbuser, $dbpassword, $dbname, $dbhost );
 
 // Exectution de chaques fonction sur un hook précis
 add_action('after_setup_theme', 'luca_supports');

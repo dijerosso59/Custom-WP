@@ -12,10 +12,3 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-
-        </nav>
-    </header>
-
-    <div class="min-h-screen flex items-center justify-center font-patrick bg-blue-500">
