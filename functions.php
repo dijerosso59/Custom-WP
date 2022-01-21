@@ -27,14 +27,12 @@ function luca_assets () {
     wp_register_style('aos.css', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
 
     wp_register_script('aos.js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], false, true);
-    wp_register_script('ionicons.js', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js', [], false, true);
 
     wp_enqueue_style('aos.css');
     wp_enqueue_style('style', get_stylesheet_uri());
 
     wp_enqueue_script('aos.js');
-    wp_enqueue_script('ionicons.js');
-    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["aos.js", "ionicons.js", "jquery"], false, true);
+    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["aos.js", "jquery"], false, true);
 }
 
 // Fonction ajout class li menu
@@ -94,13 +92,19 @@ function wpc_mime_types($mimes) {
 	return $mimes;
 }
 
-/* Connexion à la base de donnée */
-$dbuser     = defined( 'DB_USER' ) ? DB_USER : '';
-$dbpassword = defined( 'DB_PASSWORD' ) ? DB_PASSWORD : '';
-$dbname     = defined( 'DB_NAME' ) ? DB_NAME : '';
-$dbhost     = defined( 'DB_HOST' ) ? DB_HOST : '';
+function admin_page() {
+    $file = plugin_dir_path( __FILE__ ) . "admin/admin.php";
 
-$wpdb = new wpdb( $dbuser, $dbpassword, $dbname, $dbhost );
+    if ( file_exists( $file ) )
+        require $file;
+}
+
+function admin_css() {
+	$admin_css_file = 'admin_css';
+	$admin_css_link = get_template_directory_uri() . '/admin/admin.css';
+
+	wp_enqueue_style($admin_css_file, $admin_css_link);
+}
 
 // Exectution de chaques fonction sur un hook précis
 add_action('after_setup_theme', 'luca_supports');
@@ -109,8 +113,14 @@ add_action('wp_enqueue_scripts', 'luca_assets');
 
 add_action('widgets_init', 'luca_register_widget');
 
+add_action('admin_menu', function() {
+	add_menu_page( 'Page Admin', 'Page admin', 'manage_options', 'Page admin', 'admin_page', 'dashicons-calendar', 10 );
+});
+
+add_action('admin_print_styles', 'admin_css', 11);
+
 // Remet l'éditeur classique WordPress sur le hook use_block_editor_for_post
-add_filter('use_block_editor_for_post', '__return_false', 10);
+// add_filter('use_block_editor_for_post', '__return_false', 10);
 
 add_filter('nav_menu_css_class', 'luca_class_menu_li');
 
