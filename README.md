@@ -3,7 +3,7 @@
 di-rosso-theme est un thème WordPress spécialement configuré avec Tailwind.css et les fonctionnalités de base.
 
 ```bash
-git clone https://github.com/dijerosso59/Custom-WP.git
+git clone https://github.com/dijerosso59/di-rosso-theme.git
 ```
 
 ## Quickstart
