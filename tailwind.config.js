@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['../**/*.php'],
+  content: ['**/*.php'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -13,3 +12,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+// npx tailwindcss -i assets/dev.css -o style.css -w 

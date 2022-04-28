@@ -1,6 +1,6 @@
-# Custom-theme-WP
+# di-rosso-theme
 
-Custom-theme-WP est un thème WordPress spécialement configuré avec Tailwind.css.
+di-rosso-theme est un thème WordPress spécialement configuré avec Tailwind.css et les fonctionnalités de base.
 
 ```bash
 git clone https://github.com/dijerosso59/Custom-WP.git
@@ -9,16 +9,15 @@ git clone https://github.com/dijerosso59/Custom-WP.git
 ## Quickstart
 
 1. Créer un Virtual Host WordPress
-2. Dans le dossier wp-content/themes, coller le dossier du custom-theme-WP
+2. Dans le dossier wp-content/themes, coller le dossier du di-rosso-theme
 
 ## Configuration de Tailwind
 
-Définissez les fichiers qui seront purgé par Tailwind avec l'élément <b>purge</b> :
+Définissez les fichiers qui seront purgé par Tailwind avec l'élément <b>content</b> dans le tailwind.config.js :
 
 ```js
 module.exports = {
-  mode: 'jit',
-  purge: ['../**/*.php'],
+  content: ['**/*.php'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -63,10 +62,10 @@ Theme Name: Tailwind-WP
   
 }
 ```
-Une fois votre travaille terminé, ouvrez un terminal dans le dossiet assets et executez cette commande :
+Une fois votre travaille terminé, ouvrez un terminal dans le dossier du thème et executez cette commande :
 
 ```bash
-npx tailwindcss -i ./dev.css -o ../style.css -w
+npx tailwindcss -i assets/dev.css -o style.css -w
 ```
 
-Cela va analyser le comportement de TailWind de tous les fichiers configurés précédemment avec l'élément purge et mettra à jour le fichier style.css à la racine du thème.
+Cela va analyser le comportement de TailWind de tous les fichiers configurés précédemment avec l'élément content et mettra à jour le fichier style.css à la racine du thème.
