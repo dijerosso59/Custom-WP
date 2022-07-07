@@ -10,6 +10,11 @@ git clone https://github.com/dijerosso59/di-rosso-theme.git
 
 1. Créer un Virtual Host WordPress
 2. Dans le dossier wp-content/themes, coller le dossier du di-rosso-theme
+2. Installer les dépendances
+
+```bash
+npm i
+```
 
 ## Configuration de Tailwind
 
