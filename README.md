@@ -33,13 +33,15 @@ module.exports = {
 ```
 
 ## Modification du CSS
-Tout d'abord, assurez-vous de mettre le nom de votre thème en début de code
+Tout d'abord, assurez-vous de mettre le nom de votre thème en commentaire en début de code
 
-Ensuite, vous travaillez uniquement avec le fichier dev.css. Il suffit d'ajouter vos règles et votre css custom à l'intérieur du layer components :
+Ensuite, vous travaillez uniquement avec le fichier dev.css. Il suffit d'ajouter vos règles et votre css custom à l'intérieur du layer components.
+
+Si vous avez du DOM qui se charge avec un rendu côté serveur, mettez vos règles css à l'extérieur du layer components :
 
 ```css
 /*
-Theme Name: Tailwind-WP
+Theme Name: di-rosso-theme
 */
 
 @tailwind base;
