@@ -13,4 +13,4 @@ module.exports = {
   plugins: [],
 }
 
-// npx tailwindcss -i assets/dev.css -o style.css -w 
+// npx tailwindcss -i assets/css/dev.css -o style.css -w 
