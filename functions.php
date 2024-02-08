@@ -67,50 +67,7 @@ function dirosso_pagination()
     echo '</nav>';
 }
 
-function dirosso_register_widget()
-{
-    register_sidebar([
-        'id' => 'menu',
-        'name' => 'Widget Menu',
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<h4>',
-        'after_title' => '</h4>'
-    ]);
-}
-
-/* Autoriser les fichiers SVG */
-function dirosso_add_file_types_to_uploads($mime_file_types)
-{
-    $mime_file_types['svg'] = 'image/svg+xml';
-    return $mime_file_types;
-}
-
-// function admin_page() {
-//     $file = plugin_dir_path( __FILE__ ) . "admin/admin.php";
-
-//     if ( file_exists( $file ) )
-//         require $file;
-// }
-
-// function admin_css() {
-// 	$admin_css_file = 'admin_css';
-// 	$admin_css_link = get_template_directory_uri() . '/admin/admin.css';
-
-// 	wp_enqueue_style($admin_css_file, $admin_css_link);
-// }
-
 // Exectution de chaques fonction sur un hook précis
 add_action('after_setup_theme', 'dirosso_supports');
 
 add_action('wp_enqueue_scripts', 'dirosso_assets');
-
-add_action('widgets_init', 'dirosso_register_widget');
-
-add_action('upload_mimes', 'dirosso_add_file_types_to_uploads');
-
-// add_action('admin_menu', function() {
-// 	add_menu_page( 'Page Admin', 'Page admin', 'manage_options', 'Page admin', 'admin_page', 'dashicons-calendar', 10 );
-// });
-
-// add_action('admin_print_styles', 'admin_css', 11);
